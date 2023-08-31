@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animagic</title>
+</head>
+<body>
+    <div class="loader"></div>
+    <audio preload="auto" id='soundHome' src="medios/home.mp3"></audio>
+    <section class="container" id="initialPart">
+
+       <div class="prevObj" id="activeSound">
+            <img src="images/soundoff.png" alt="">
+        </div>
+
+      <audio id="welcomeSound" preload="auto">
+        <source src="medios/home.mp3">
+      </audio>
+
+        <div class="container-central" id="welcomePart">
+            <div class="mt-3" id="txt">
+                <h1>AnimaGic</h1>                
+            </div>
+
+            <div id="btnPlay">
+                <input type="button" class="btn" id="playGame" value="Iniciar">
+            </div>
+
+        </div>
+    </section>
+
+    
+    <section class="container" id="rulesConfig">
+        <div class="prevObj" id="prevHome">
+            <img src="images/retroceder2.png" alt="">
+        </div>
+
+        <div class="soundControl" id="desactiveSound">
+            <div>    
+                <img src="images/soundon.png" alt="">
+            </div>
+        </div>
+
+        <div class="container-central mt-4">
+            <div id="txt">
+                <h1>Configuraciones AnimaGic</h1>              
+            </div>
+
+            <div class="content">
+
+                <div id="cardsContent" class="w-100 mt-2">
+                 <!-- <label for="">Escoge un rompecabezas</label> -->
+                 <div class="cardsOptions mt-1"> 
+                     <div class="card" id="randomCard" onclick="randomCard()">
+                         <img src="images/random.png" width="200" alt="">
+                         <h2>Aleatorio</h2>
+                        </div>
+                        
+                        <div class="card" id="animals" onclick="animalsBtn()">
+                            <img src="images/animals.png" width="220" alt="">
+                            <h2>Animales</h2>
+                        </div>
+                        
+                    </div>
+                </div>    
+
+                <div id="dataUser" class="w-50 mt-3">
+                    <label for="edad">Edad</label>
+                    <select name="edad" id="edad" class="select-form select-beauty" multiple>
+                
+                    </select>
+                </div>
+
+                <div id="dataLevel" class="w-50 mt-3 mb-5">
+                    <label for="difficulty">Dificultad</label>
+                    <div class="w-100 rangeSelector mt-2">
+                        <input type="range" min="2" max="20" value="4" id="difficulty" class="rangeLevel" oninput="rangenumber.value=value"/>
+                        <input type="number" id="rangenumber" readonly min="2" max="20" value="4" oninput="range.value=value">  
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="d-center" id="btnPrev">
+                <input type="button" class="btn mt-2" id="continueGame" value="Continuar">  
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="container" id="playingGame">
+        <input type="hidden" id="num-question" value="0">
+        <input type="hidden" id="status-game" value="0">
+
+    <div class="soundControl" id="desactiveSound2">
+        <div>
+            <img src="images/soundon.png" alt="sonidoOn">
+        </div>
+    </div>
+
+    <div class='pregunta'>
+           <img src="images/pregunta.png" alt="pregunta">
+    </div>
+
+    <div class="prevObj" id="prevConf">
+            <img src="images/retroceder2.png" alt="retroceso">
+        </div>
+
+        <div id="canvasContainer">
+            <canvas id="canvas"></canvas>
+
+
+             <div id="canvasOptions">
+                 <input type="button" value="Empezar" class="btn" id="buildImage">
+                 <input type="button" value="Finalizar" onclick="detener" class="btn danger" id="finishGame">
+                 <div id="tiempoTranscurrido"></div>
+                 <img id="soundAnimal" src="images/animalSoundOff.png" width="70" alt="soundOff">
+                 <!-- <div class="ml-2" id="soundanimal">
+                 </div> -->
+             </div>
+    
+        </div>
+
+        <div class="userContain">
+            <div id="titleWords">
+                <h1>Resuelve la palabra</h1>
+            </div>
+
+        <div id="resultWords"></div>
+
+        <div id="imagenAyuda"></div>
+        </div>
+
+    </section>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2 class="title"></h2>
+          <p class="body"></p>
+        </div>
+      </div>
+
+
+<script src="map.js"></script>
+<script src="contador.js"></script>
+</body>
+</html>
